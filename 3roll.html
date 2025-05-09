@@ -1,661 +1,415 @@
-{\rtf1\ansi\ansicpg950\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset136 PingFangTC-Regular;\f2\fnil\fcharset0 AppleColorEmoji;
-}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww12720\viewh7240\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloria老師的導師班每週出缺勤點名表</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自訂 TailwindCSS */
+        body {
+            font-family: 'Inter', sans-serif; /* 使用 Inter 字體 */
+        }
+        .subject-select, .teacher-select, #formFillerSelect { /* 將樣式應用到新的填表人下拉選單 */
+            min-width: 120px;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236b7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+        }
+        #formFillerSelect { /* 針對填表人下拉選單的特定調整 */
+            padding: 0.375rem 0.75rem; /* Tailwind p-1.5 */
+        }
+        /* 自訂的 "X" 標記樣式 */
+        .custom-checkbox-container {
+            width: 2em;
+            height: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            margin: auto;
+        }
+        .custom-checkbox-container.checked .x-mark {
+            display: inline;
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.25em;
+        }
+        .x-mark {
+            display: none;
+        }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="zh-TW">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Gloria
-\f1 \'a6\'d1\'ae\'76\'aa\'ba\'be\'c9\'ae\'76\'af\'5a\'a8\'43\'b6\'67\'a5\'58\'af\'ca\'b6\'d4\'c2\'49\'a6\'57\'aa\'ed
-\f0 </title>\
-    <script src="https://cdn.tailwindcss.com"></script>\
-    <style>\
-        /* 
-\f1 \'a6\'db\'ad\'71
-\f0  TailwindCSS */\
-        body \{\
-            font-family: 'Inter', sans-serif; /* 
-\f1 \'a8\'cf\'a5\'ce
-\f0  Inter 
-\f1 \'a6\'72\'c5\'e9
-\f0  */\
-        \}\
-        .subject-select, .teacher-select, #formFillerSelect \{ /* 
-\f1 \'b1\'4e\'bc\'cb\'a6\'a1\'c0\'b3\'a5\'ce\'a8\'ec\'b7\'73\'aa\'ba\'b6\'f1\'aa\'ed\'a4\'48\'a4\'55\'a9\'d4\'bf\'ef\'b3\'e6
-\f0  */\
-            min-width: 120px;\
-            padding: 0.25rem 0.5rem;\
-            border: 1px solid #d1d5db;\
-            border-radius: 0.25rem;\
-            background-color: transparent;\
-            -webkit-appearance: none;\
-            -moz-appearance: none;\
-            appearance: none;\
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236b7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');\
-            background-repeat: no-repeat;\
-            background-position: right .7em top 50%, 0 0;\
-            background-size: .65em auto, 100%;\
-        \}\
-        #formFillerSelect \{ /* 
-\f1 \'b0\'77\'b9\'ef\'b6\'f1\'aa\'ed\'a4\'48\'a4\'55\'a9\'d4\'bf\'ef\'b3\'e6\'aa\'ba\'af\'53\'a9\'77\'bd\'d5\'be\'e3
-\f0  */\
-            padding: 0.375rem 0.75rem; /* Tailwind p-1.5 */\
-        \}\
-        /* 
-\f1 \'a6\'db\'ad\'71\'aa\'ba
-\f0  "X" 
-\f1 \'bc\'d0\'b0\'4f\'bc\'cb\'a6\'a1
-\f0  */\
-        .custom-checkbox-container \{\
-            width: 2em;\
-            height: 2em;\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-            border: 1px solid #d1d5db;\
-            border-radius: 0.25rem;\
-            cursor: pointer;\
-            margin: auto;\
-        \}\
-        .custom-checkbox-container.checked .x-mark \{\
-            display: inline;\
-            color: #ef4444;\
-            font-weight: bold;\
-            font-size: 1.25em;\
-        \}\
-        .x-mark \{\
-            display: none;\
-        \}\
-\
-        th, td \{\
-            padding: 0.75rem;\
-            border: 1px solid #e2e8f0;\
-            text-align: center;\
-            white-space: nowrap;\
-        \}\
-        th \{\
-            background-color: #f3f4f6;\
-            font-weight: 600;\
-        \}\
-        tfoot td \{\
-            font-weight: 600;\
-            background-color: #f3f4f6;\
-        \}\
-        .sticky-col \{\
-            position: -webkit-sticky;\
-            position: sticky;\
-        \}\
-        .sticky-col-date \{ left: 0; z-index: 10;\}\
-        .sticky-col-period \{ left: 80px; z-index: 10;\}\
-        .sticky-col-subject \{ left: 160px; z-index: 10;\}\
-        .sticky-col-teacher \{ left: 280px; z-index: 10;\}\
-\
-\
-        thead th \{\
-            position: -webkit-sticky;\
-            position: sticky;\
-            top: 0;\
-            z-index: 20;\
-        \}\
-        thead .sticky-col-date \{ z-index: 30; background-color: #f3f4f6 !important; \}\
-        thead .sticky-col-period \{ z-index: 30; background-color: #f3f4f6 !important; \}\
-        thead .sticky-col-subject \{ z-index: 30; background-color: #f3f4f6 !important; \}\
-        thead .sticky-col-teacher \{ z-index: 30; background-color: #f3f4f6 !important; \}\
-\
-\
-        .text-red-500 \{ color: #ef4444; \}\
-        .bg-sky-200 \{ background-color: #bae6fd; \}\
-        .bg-pink-200 \{ background-color: #fbcfe8; \}\
-\
-    </style>\
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">\
-</head>\
-<body class="bg-gray-50 text-gray-800">\
-\
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8">\
-        <header class="mb-6 text-center">\
-            <h1 class="text-3xl font-bold text-gray-700">Gloria
-\f1 \'a6\'d1\'ae\'76\'aa\'ba\'be\'c9\'ae\'76\'af\'5a\'a8\'43\'b6\'67\'a5\'58\'af\'ca\'b6\'d4\'c2\'49\'a6\'57\'aa\'ed
-\f0 </h1>\
-            <p class="text-sm text-gray-600 mt-2 p-2 rounded bg-sky-200 inline-block">
-\f1 \'aa\'ed\'ae\'e6\'b3\'d0\'ab\'d8\'a4\'48\'a1\'47
-\f0 Gloria
-\f1 \'a7\'64\'a8\'71\'c4\'f5\'a6\'d1\'ae\'76\'a1\'41
-\f0 Google
-\f1 \'bb\'7b\'c3\'d2\'c1\'bf\'ae\'76\'a1\'41\'ad\'5e\'a4\'e5\'ad\'dd\'a5\'78\'bb\'79\'b1\'d0\'ae\'76
-\f0 </p>\
-            <p class="text-sm text-gray-500 mt-3 p-1 rounded bg-pink-200 inline-block font-bold italic">
-\f2 \uc0\u55357 \u56908 
-\f1 \'bd\'d0\'a6\'62\'a4\'55\'a4\'e8\'aa\'ed\'ae\'e6\'bc\'d0\'aa\'60\'b8\'d3\'a6\'ec\'a6\'50\'be\'c7\'b8\'d3\'b8\'60\'bd\'d2\'c3\'6d\'bd\'d2\'aa\'ac\'aa\'70\'a1\'43
-\f0 </p>\
-            <div class="mt-3 text-sm">\
-                <label for="formFillerSelect" class="font-medium text-gray-700">
-\f1 \'b6\'f1\'aa\'ed\'a4\'48\'a1\'47
-\f0 </label>\
-                <select id="formFillerSelect" name="formFillerSelect" class="border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">\
-                    <option value="
-\f1 \'a4\'70\'c0\'b0\'a4\'e2
-\f0 ">
-\f1 \'a4\'70\'c0\'b0\'a4\'e2
-\f0 </option>\
-                    <option value="
-\f1 \'be\'c9\'ae\'76
-\f0 ">
-\f1 \'be\'c9\'ae\'76
-\f0 </option>\
-                </select>\
-            </div>\
-        </header>\
-\
-        <div class="mb-6 flex flex-col sm:flex-row items-center sm:space-x-3 bg-white p-4 rounded-lg shadow">\
-            <label for="weekStart" class="text-sm font-medium text-gray-700 mb-2 sm:mb-0 font-bold">
-\f1 \'bf\'ef\'be\'dc\'b6\'67\'a4\'40\'a4\'e9\'b4\'c1\'a1\'47
-\f0 </label>\
-            <input type="date" id="weekStart" class="border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">\
-        </div>\
-\
-        <div id="tableContainer" class="overflow-x-auto bg-white rounded-lg shadow">\
-            <table id="attendanceTable" class="min-w-full border-collapse border border-gray-300">\
-                <thead id="tableHeader" class="bg-gray-100">\
-                    </thead>\
-                <tbody id="tableBody">\
-                    </tbody>\
-                <tfoot id="tableFooter" class="bg-gray-100 font-semibold">\
-                    </tfoot>\
-            </table>\
-        </div>\
-         <div id="noDataMessage" class="hidden mt-4 text-center text-gray-500">\
-            
-\f1 \'bd\'d0\'bf\'ef\'be\'dc\'a4\'e9\'b4\'c1\'a5\'48\'b8\'fc\'a4\'4a\'c2\'49\'a6\'57\'aa\'ed\'a1\'43
-\f0 \
-        </div>\
-    </div>\
-\
-    <script>\
-        // 
-\f1 \'be\'c7\'a5\'cd\'a6\'57\'b3\'e6
-\f0 \
-        const students = [\
-            \{ seat: "1", id: "219001", name: "
-\f1 \'a7\'f9\'df\'4e\'b4\'fc
-\f0 " \}, \{ seat: "2", id: "219002", name: "
-\f1 \'a4\'fd\'ab\'c9\'f1\'5a
-\f0 " \},\
-            \{ seat: "3", id: "219003", name: "
-\f1 \'a4\'fd\'ad\'b3\'b6\'76
-\f0 " \}, \{ seat: "4", id: "219004", name: "
-\f1 \'a4\'fd\'b1\'4c\'a5\'e0
-\f0 " \},\
-            \{ seat: "5", id: "219005", name: "
-\f1 \'a4\'fd\'b8\'5b\'b5\'7b
-\f0 " \}, \{ seat: "6", id: "219006", name: "
-\f1 \'a6\'b6\'ab\'db\'c0\'4d
-\f0 " \},\
-            \{ seat: "7", id: "219007", name: "
-\f1 \'a7\'64\'ac\'66\'bd\'cb
-\f0 " \}, \{ seat: "8", id: "219008", name: "
-\f1 \'a7\'f5\'a9\'7c\'eb\'f7
-\f0 " \},\
-            \{ seat: "9", id: "219009", name: "
-\f1 \'a7\'f5\'ab\'db\'a7\'ca
-\f0 " \}, \{ seat: "10", id: "219010", name: "
-\f1 \'aa\'4c\'a5\'bf\'b3\'d4
-\f0 " \},\
-            \{ seat: "11", id: "219011", name: "
-\f1 \'aa\'4c\'aa\'51\'a8\'dd
-\f0 " \}, \{ seat: "12", id: "219012", name: "
-\f1 \'aa\'4c\'ab\'61\'a7\'ca
-\f0 " \},\
-            \{ seat: "13", id: "219013", name: "
-\f1 \'aa\'4c\'ab\'61\'bf\'6f
-\f0 " \}, \{ seat: "14", id: "219014", name: "
-\f1 \'aa\'4c\'b3\'d5\'ab\'c5
-\f0 " \},\
-            \{ seat: "15", id: "219015", name: "
-\f1 \'aa\'4c\'bc\'dd\'f8\'ca
-\f0 " \}, \{ seat: "16", id: "219016", name: "
-\f1 \'b3\'af\'d6\'f6\'b3\'cd
-\f0 " \},\
-            \{ seat: "17", id: "219017", name: "
-\f1 \'b2\'f8\'a4\'e5\'a5\'dd
-\f0 " \}, \{ seat: "18", id: "219018", name: "
-\f1 \'b3\'a2\'ab\'c9\'a8\'b0
-\f0 " \},\
-            \{ seat: "19", id: "219019", name: "
-\f1 \'b3\'a2\'ac\'66\'a7\'c2
-\f0 " \}, \{ seat: "20", id: "219020", name: "
-\f1 \'b3\'af\'a4\'cd\'a4\'e5
-\f0 " \},\
-            \{ seat: "21", id: "219021", name: "
-\f1 \'b3\'af\'ab\'ed\'d6\'f6
-\f0 " \}, \{ seat: "22", id: "219022", name: "
-\f1 \'b3\'af\'ac\'66\'a6\'74
-\f0 " \},\
-            \{ seat: "23", id: "219023", name: "
-\f1 \'b6\'c0\'ab\'61\'bf\'41
-\f0 " \}, \{ seat: "24", id: "219024", name: "
-\f1 \'b6\'c0\'ab\'c9\'b9\'c5
-\f0 " \},\
-            \{ seat: "25", id: "219025", name: "
-\f1 \'b9\'f9\'ae\'ca\'a6\'f6
-\f0 " \}, \{ seat: "26", id: "219026", name: "
-\f1 \'c1\'c2\'a9\'7c\'bf\'d9
-\f0 " \},\
-            \{ seat: "27", id: "219027", name: "
-\f1 \'c1\'c2\'b3\'d5\'a6\'77
-\f0 " \}, \{ seat: "29", id: "219029", name: "
-\f1 \'c4\'ac\'ab\'b3\'bb\'f4
-\f0 " \}\
-        ];\
-        // 
-\f1 \'ac\'ec\'a5\'d8\'a6\'43\'aa\'ed
-\f0 \
-        const subjects = ["", "
-\f1 \'b0\'ea\'a4\'e5
-\f0 ", "
-\f1 \'ad\'5e\'a4\'e5
-\f0 ", "
-\f1 \'bc\'c6\'be\'c7
-\f0 ", "
-\f1 \'c5\'e9\'a8\'7c
-\f0 ", "
-\f1 \'ac\'fc\'b3\'4e
-\f0 ", "
-\f1 \'aa\'ab\'b2\'7a
-\f0 ", "
-\f1 \'b1\'4d\'b7\'7e
-\f0 ", "
-\f1 \'b9\'ea\'b2\'df
-\f0 ", "
-\f1 \'b1\'4d\'c3\'44
-\f0 ", "
-\f1 \'af\'5a\'b7\'7c
-\f0 ", "
-\f1 \'b6\'67\'b7\'7c
-\f0 /
-\f1 \'aa\'c0\'b9\'ce
-\f0 "];\
-        // 
-\f1 \'b1\'d0\'ae\'76\'a6\'43\'aa\'ed
-\f0 \
-        const teachers = ["", "
-\f1 \'a7\'64\'a8\'71\'c4\'f5\'ae\'76
-\f0 ", "
-\f1 \'b3\'5c\'a4\'d7\'ac\'fc\'ae\'76
-\f0 ", "
-\f1 \'b1\'69\uc0\u28702 \'a4\'e5\'ae\'76
-\f0 ", "
-\f1 \'b6\'c0\'af\'71\'bc\'79\'ae\'76
-\f0 ", "
-\f1 \'b7\'a8\'b4\'bc\'a6\'74\'ae\'76
-\f0 ", "
-\f1 \'aa\'4c\'c0\'52\'b5\'d8\'ae\'76
-\f0 ", "
-\f1 \'a4\'fd\'ab\'d8\'b4\'c5\'ae\'76
-\f0 ", "
-\f1 \'b3\'af\'c0\'41\'a9\'be\'ae\'76
-\f0 ", "
-\f1 \'b3\'5c\'a5\'4f\'c0\'4d\'ae\'76
-\f0 ", "
-\f1 \'c4\'ac\'b1\'4d\'ba\'61\'ae\'76
-\f0 "];\
-        // 
-\f1 \'b6\'f1\'aa\'ed\'a4\'48\'a8\'a4\'a6\'e2
-\f0 \
-        const roles = ["
-\f1 \'a4\'70\'c0\'b0\'a4\'e2
-\f0 ", "
-\f1 \'be\'c9\'ae\'76
-\f0 "];\
-\
-\
-        const NUM_PERIODS = 7; // 
-\f1 \'a8\'43\'a4\'e9\'b8\'60\'a6\'b8\'bc\'c6
-\f0 \
-        const NUM_DAYS = 5;    // 
-\f1 \'a8\'43\'b6\'67\'a4\'d1\'bc\'c6
-\f0  (
-\f1 \'b6\'67\'a4\'40\'a6\'dc\'b6\'67\'a4\'ad
-\f0 )\
-\
-        const weekStartInput = document.getElementById('weekStart');\
-        const tableHeader = document.getElementById('tableHeader');\
-        const tableBody = document.getElementById('tableBody');\
-        const tableFooter = document.getElementById('tableFooter');\
-        const noDataMessage = document.getElementById('noDataMessage');\
-        const tableContainer = document.getElementById('tableContainer');\
-        const formFillerSelect = document.getElementById('formFillerSelect');\
-\
-        // 
-\f1 \'b1\'4e\'a4\'e9\'b4\'c1\'aa\'ab\'a5\'f3\'ae\'e6\'a6\'a1\'a4\'c6\'ac\'b0
-\f0  YYYYMMDD 
-\f1 \'a6\'72\'a6\'ea
-\f0 \
-        function formatDateAsYYYYMMDD(dateObj) \{\
-            const year = dateObj.getFullYear();\
-            const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');\
-            const day = dateObj.getDate().toString().padStart(2, '0');\
-            return `$\{year\}$\{month\}$\{day\}`;\
-        \}\
-\
-        function initializeDate() \{\
-            const today = new Date();\
-            const dayOfWeek = today.getDay();\
-            const diffToMonday = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);\
-            const monday = new Date(today.setDate(diffToMonday));\
-            weekStartInput.valueAsDate = monday;\
-            renderTable(monday);\
-        \}\
-\
-        function renderTable(startDate) \{\
-            if (!startDate || isNaN(startDate.getTime())) \{\
-                 tableContainer.classList.add('hidden');\
-                 noDataMessage.classList.remove('hidden');\
-                return;\
-            \}\
-            tableContainer.classList.remove('hidden');\
-            noDataMessage.classList.add('hidden');\
-\
-            tableHeader.innerHTML = '';\
-            tableBody.innerHTML = '';\
-            // tableFooter.innerHTML = ''; // 
-\f1 \'aa\'ed\'a7\'c0\'b5\'b2\'ba\'63\'a5\'d1
-\f0  renderFooterStructure 
-\f1 \'b3\'d0\'ab\'d8
-\f0 \
-\
-            // 
-\f1 \'b4\'e8\'ac\'56\'aa\'ed\'c0\'59
-\f0 \
-            const headerRow = tableHeader.insertRow();\
-            const dateTh = headerRow.insertCell();\
-            dateTh.textContent = '
-\f1 \'a4\'e9\'b4\'c1
-\f0 ';\
-            dateTh.classList.add('sticky-col', 'sticky-col-date');\
-\
-            const periodTh = headerRow.insertCell();\
-            periodTh.textContent = '
-\f1 \'b8\'60\'a6\'b8
-\f0 ';\
-            periodTh.classList.add('sticky-col', 'sticky-col-period');\
-\
-            const subjectTh = headerRow.insertCell();\
-            subjectTh.textContent = '
-\f1 \'ac\'ec\'a5\'d8
-\f0 ';\
-            subjectTh.classList.add('sticky-col', 'sticky-col-subject');\
-\
-\
-            const teacherTh = headerRow.insertCell();\
-            teacherTh.textContent = '
-\f1 \'a5\'f4\'bd\'d2\'b1\'d0\'ae\'76
-\f0 ';\
-            teacherTh.classList.add('sticky-col', 'sticky-col-teacher');\
-\
-            students.forEach(student => \{\
-                const studentTh = headerRow.insertCell();\
-                studentTh.textContent = `$\{student.seat\}. $\{student.name\}`;\
-                studentTh.classList.add('px-2', 'py-3', 'text-xs');\
-            \});\
-\
-            // 
-\f1 \'b4\'e8\'ac\'56\'aa\'ed\'ae\'e6\'a5\'44\'c5\'e9
-\f0 \
-            const selectedRoleForDisplay = formFillerSelect.value; // 
-\f1 \'c0\'f2\'a8\'fa\'b7\'ed\'ab\'65\'bf\'ef\'be\'dc\'a5\'48\'c5\'e3\'a5\'dc\'aa\'ba\'a8\'a4\'a6\'e2
-\f0 \
-\
-            for (let dayIndex = 0; dayIndex < NUM_DAYS; dayIndex++) \{\
-                const cellDate = new Date(startDate);\
-                cellDate.setDate(startDate.getDate() + dayIndex);\
-                const formattedCellDate = formatDateAsYYYYMMDD(cellDate);\
-                const dateString = cellDate.toLocaleDateString('zh-TW', \{ month: '2-digit', day: '2-digit' \});\
-                const dayName = cellDate.toLocaleDateString('zh-TW', \{ weekday: 'short' \});\
-\
-                let rowBgClass = '';\
-                if (dayIndex === 0 || dayIndex === 2 || dayIndex === 4) \{ // 
-\f1 \'b6\'67\'a4\'40
-\f0 , 
-\f1 \'b6\'67\'a4\'54
-\f0 , 
-\f1 \'b6\'67\'a4\'ad
-\f0 \
-                    rowBgClass = 'bg-yellow-100';\
-                \} else if (dayIndex === 1) \{ // 
-\f1 \'b6\'67\'a4\'47
-\f0 \
-                    rowBgClass = 'bg-sky-100';\
-                \} else \{ // 
-\f1 \'b6\'67\'a5\'7c
-\f0  (dayIndex === 3)\
-                    rowBgClass = 'bg-green-100';\
-                \}\
-\
-                for (let periodIndex = 0; periodIndex < NUM_PERIODS; periodIndex++) \{\
-                    const row = tableBody.insertRow();\
-\
-                    const dateCell = row.insertCell();\
-                    dateCell.classList.add(rowBgClass);\
-                    if (periodIndex === 0) \{\
-                        dateCell.textContent = `$\{dateString\} ($\{dayName\})`;\
-                        dateCell.rowSpan = NUM_PERIODS;\
-                        dateCell.classList.add('sticky-col', 'sticky-col-date', 'align-middle');\
-                    \} else \{\
-                        dateCell.classList.add('hidden');\
-                    \}\
-\
-                    const periodCell = row.insertCell();\
-                    periodCell.textContent = (periodIndex + 1).toString();\
-                    periodCell.classList.add('sticky-col', 'sticky-col-period', 'align-middle', rowBgClass);\
-\
-                    const subjectCell = row.insertCell();\
-                    const subjectSelect = document.createElement('select');\
-                    subjectSelect.classList.add('subject-select', 'w-full', 'text-sm');\
-                    subjects.forEach(subject => \{\
-                        const option = document.createElement('option');\
-                        option.value = subject;\
-                        option.textContent = subject;\
-                        if (subject === "") option.textContent = "
-\f1 \'bf\'ef\'be\'dc\'ac\'ec\'a5\'d8
-\f0 ";\
-                        subjectSelect.appendChild(option);\
-                    \});\
-                    subjectCell.appendChild(subjectSelect);\
-                    subjectCell.classList.add('sticky-col', 'sticky-col-subject', 'align-middle', rowBgClass);\
-\
-                    const teacherCell = row.insertCell();\
-                    const teacherSelect = document.createElement('select');\
-                    teacherSelect.classList.add('teacher-select', 'w-full', 'text-sm');\
-                    teachers.forEach(teacher => \{\
-                        const option = document.createElement('option');\
-                        option.value = teacher;\
-                        option.textContent = teacher;\
-                         if (teacher === "") option.textContent = "
-\f1 \'bf\'ef\'be\'dc\'b1\'d0\'ae\'76
-\f0 ";\
-                        teacherSelect.appendChild(option);\
-                    \});\
-                    teacherCell.appendChild(teacherSelect);\
-                    teacherCell.classList.add('sticky-col', 'sticky-col-teacher', 'align-middle', rowBgClass);\
-\
-                    students.forEach(student => \{\
-                        const attendanceCell = row.insertCell();\
-                        attendanceCell.classList.add(rowBgClass);\
-                        const checkboxContainer = document.createElement('div');\
-                        checkboxContainer.classList.add('custom-checkbox-container');\
-                        \
-                        checkboxContainer.dataset.studentId = student.id;\
-                        checkboxContainer.dataset.date = formattedCellDate;\
-                        checkboxContainer.dataset.period = periodIndex.toString();\
-\
-                        // 
-\f1 \'ae\'da\'be\'da\'bf\'ef\'be\'dc\'aa\'ba\'a8\'a4\'a6\'e2\'c5\'aa\'a8\'fa
-\f0  localStorage 
-\f1 \'a5\'48\'c5\'e3\'a5\'dc
-\f0  "X"\
-                        const localStorageKeyForDisplay = `absence_$\{selectedRoleForDisplay\}_$\{student.id\}_$\{formattedCellDate\}_$\{periodIndex\}`;\
-                        const isChecked = localStorage.getItem(localStorageKeyForDisplay) === "true";\
-                        \
-                        checkboxContainer.dataset.checked = isChecked.toString();\
-                        if(isChecked) checkboxContainer.classList.add('checked');\
-\
-                        const xMark = document.createElement('span');\
-                        xMark.classList.add('x-mark');\
-                        xMark.textContent = 'X';\
-                        checkboxContainer.appendChild(xMark);\
-\
-                        checkboxContainer.addEventListener('click', () => \{\
-                            const currentCheckedState = checkboxContainer.dataset.checked === "true";\
-                            const newCheckedState = !currentCheckedState;\
-                            checkboxContainer.dataset.checked = newCheckedState.toString();\
-                            checkboxContainer.classList.toggle('checked', newCheckedState);\
-\
-                            // 
-\f1 \'c0\'78\'a6\'73\'ae\'c9\'a1\'41\'a8\'cf\'a5\'ce\'b7\'ed\'ab\'65\'a4\'55\'a9\'d4\'bf\'ef\'b3\'e6\'bf\'ef\'be\'dc\'aa\'ba\'a8\'a4\'a6\'e2
-\f0 \
-                            const roleForStorage = formFillerSelect.value;\
-                            const key = `absence_$\{roleForStorage\}_$\{checkboxContainer.dataset.studentId\}_$\{checkboxContainer.dataset.date\}_$\{checkboxContainer.dataset.period\}`;\
-                            if (newCheckedState) \{\
-                                localStorage.setItem(key, "true");\
-                            \} else \{\
-                                localStorage.removeItem(key);\
-                            \}\
-                            updateWeeklyAbsenceTotals(); // 
-\f1 \'a7\'f3\'b7\'73\'c1\'60\'ad\'70
-\f0 \
-                        \});\
-                        attendanceCell.appendChild(checkboxContainer);\
-                        attendanceCell.classList.add('align-middle');\
-                    \});\
-                \}\
-            \}\
-            renderFooterStructure(); \
-            updateWeeklyAbsenceTotals(); \
-        \}\
-\
-        function updateWeeklyAbsenceTotals() \{\
-            const currentWeekStartDate = new Date(weekStartInput.value); \
-\
-            students.forEach(student => \{\
-                let combinedWeeklyAbsences = 0;\
-                for (let dayOffset = 0; dayOffset < NUM_DAYS; dayOffset++) \{\
-                    const dayDate = new Date(currentWeekStartDate);\
-                    dayDate.setDate(currentWeekStartDate.getDate() + dayOffset);\
-                    const formattedDayDate = formatDateAsYYYYMMDD(dayDate);\
-\
-                    for (let periodIdx = 0; periodIdx < NUM_PERIODS; periodIdx++) \{\
-                        // 
-\f1 \'c0\'cb\'ac\'64
-\f0  "
-\f1 \'a4\'70\'c0\'b0\'a4\'e2
-\f0 " 
-\f1 \'aa\'ba\'bc\'d0\'b0\'4f
-\f0 \
-                        const keyAssistant = `absence_
-\f1 \'a4\'70\'c0\'b0\'a4\'e2
-\f0 _$\{student.id\}_$\{formattedDayDate\}_$\{periodIdx\}`;\
-                        if (localStorage.getItem(keyAssistant) === "true") \{\
-                            combinedWeeklyAbsences++;\
-                        \}\
-                        // 
-\f1 \'c0\'cb\'ac\'64
-\f0  "
-\f1 \'be\'c9\'ae\'76
-\f0 " 
-\f1 \'aa\'ba\'bc\'d0\'b0\'4f
-\f0 \
-                        const keyTutor = `absence_
-\f1 \'be\'c9\'ae\'76
-\f0 _$\{student.id\}_$\{formattedDayDate\}_$\{periodIdx\}`;\
-                        if (localStorage.getItem(keyTutor) === "true") \{\
-                            combinedWeeklyAbsences++;\
-                        \}\
-                    \}\
-                \}\
-\
-                const totalCell = document.getElementById(`total-cell-$\{student.id\}`);\
-                if (totalCell) \{\
-                    totalCell.textContent = combinedWeeklyAbsences.toString();\
-                    if (combinedWeeklyAbsences > 0) \{\
-                        totalCell.classList.add('text-red-500');\
-                    \} else \{\
-                        totalCell.classList.remove('text-red-500');\
-                    \}\
-                \}\
-            \});\
-        \}\
-\
-        function renderFooterStructure() \{\
-            tableFooter.innerHTML = ''; \
-\
-            const weeklyTotalFooterRow = tableFooter.insertRow();\
-            const weeklyTotalLabelCell = weeklyTotalFooterRow.insertCell();\
-            weeklyTotalLabelCell.textContent = '
-\f1 \'b8\'d3\'b6\'67\'be\'c7\'a5\'cd\'c3\'6d\'bd\'d2\'a4\'70\'b0\'4f\'a1\'47
-\f0 '; \
-            weeklyTotalLabelCell.colSpan = 4;\
-            weeklyTotalLabelCell.classList.add('text-right', 'pr-4', 'sticky-col', 'sticky-col-date', 'bg-gray-100', 'align-middle');\
-\
-            students.forEach(student => \{\
-                const totalCell = weeklyTotalFooterRow.insertCell();\
-                totalCell.id = `total-cell-$\{student.id\}`; // ID 
-\f1 \'a5\'ce\'a9\'f3
-\f0  updateWeeklyAbsenceTotals 
-\f1 \'a7\'f3\'b7\'73
-\f0 \
-                totalCell.textContent = '0';\
-                totalCell.classList.add('align-middle', 'bg-gray-100');\
-            \});\
-        \}\
-\
-        weekStartInput.addEventListener('change', (event) => \{\
-            const selectedDate = new Date(event.target.value);\
-            // 
-\f1 \'bd\'54\'ab\'4f\'bf\'ef\'be\'dc\'aa\'ba\'ac\'4f\'b6\'67\'a4\'40\'a1\'41\'a6\'70\'aa\'47\'a4\'a3\'ac\'4f\'a1\'41\'a6\'db\'b0\'ca\'bd\'d5\'be\'e3\'a8\'ec\'b8\'d3\'b6\'67\'aa\'ba\'b6\'67\'a4\'40
-\f0 \
-            if (selectedDate.getDay() !== 1) \{ \
-                alert('
-\f1 \'a4\'e9\'b4\'c1\'a4\'77\'a6\'db\'b0\'ca\'bd\'d5\'be\'e3\'ac\'b0\'a9\'d2\'bf\'ef\'b6\'67\'aa\'ba\'b6\'67\'a4\'40\'a1\'43
-\f0 ');\
-                const dayOfWeek = selectedDate.getDay();\
-                const diffToMonday = selectedDate.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1); // dayOfWeek is 0 for Sunday, 1 for Monday...\
-                const monday = new Date(selectedDate.setDate(diffToMonday));\
-                weekStartInput.valueAsDate = monday; // 
-\f1 \'a7\'f3\'b7\'73\'bf\'e9\'a4\'4a\'ae\'d8\'aa\'ba\'ad\'c8
-\f0 \
-                renderTable(monday);\
-            \} else \{\
-                renderTable(selectedDate);\
-            \}\
-        \});\
-\
-        // 
-\f1 \'b7\'ed\'b6\'f1\'aa\'ed\'a4\'48\'a8\'a4\'a6\'e2\'a7\'ef\'c5\'dc\'ae\'c9\'a1\'41\'ad\'ab\'b7\'73\'b4\'e8\'ac\'56\'aa\'ed\'ae\'e6\'a5\'48\'c5\'e3\'a5\'dc\'b8\'d3\'a8\'a4\'a6\'e2\'aa\'ba\'bc\'d0\'b0\'4f\'a1\'41\'a8\'c3\'a7\'f3\'b7\'73\'c1\'60\'ad\'70
-\f0 \
-        formFillerSelect.addEventListener('change', () => \{\
-            const selectedDate = new Date(weekStartInput.value);\
-            renderTable(selectedDate); // renderTable 
-\f1 \'a4\'ba\'b3\'a1\'b7\'7c\'c5\'aa\'a8\'fa
-\f0  formFillerSelect.value\
-        \});\
-\
-        document.addEventListener('DOMContentLoaded', () => \{\
-            initializeDate();\
-             if (!weekStartInput.value) \{ // 
-\f1 \'bd\'54\'ab\'4f\'a6\'62\'a8\'53\'a6\'b3\'b9\'77\'b3\'5d\'a4\'e9\'b4\'c1\'ae\'c9\'c5\'e3\'a5\'dc\'b4\'a3\'a5\'dc
-\f0 \
-                tableContainer.classList.add('hidden');\
-                noDataMessage.classList.remove('hidden');\
-            \}\
-        \});\
-    </script>\
-</body>\
-</html>\
-}
+        th, td {
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            white-space: nowrap;
+        }
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        tfoot td {
+            font-weight: 600;
+            background-color: #f3f4f6;
+        }
+        .sticky-col {
+            position: -webkit-sticky;
+            position: sticky;
+        }
+        .sticky-col-date { left: 0; z-index: 10;}
+        .sticky-col-period { left: 80px; z-index: 10;}
+        .sticky-col-subject { left: 160px; z-index: 10;}
+        .sticky-col-teacher { left: 280px; z-index: 10;}
+
+
+        thead th {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        thead .sticky-col-date { z-index: 30; background-color: #f3f4f6 !important; }
+        thead .sticky-col-period { z-index: 30; background-color: #f3f4f6 !important; }
+        thead .sticky-col-subject { z-index: 30; background-color: #f3f4f6 !important; }
+        thead .sticky-col-teacher { z-index: 30; background-color: #f3f4f6 !important; }
+
+
+        .text-red-500 { color: #ef4444; }
+        .bg-sky-200 { background-color: #bae6fd; }
+        .bg-pink-200 { background-color: #fbcfe8; }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="mb-6 text-center">
+            <h1 class="text-3xl font-bold text-gray-700">Gloria老師的導師班每週出缺勤點名表</h1>
+            <p class="text-sm text-gray-600 mt-2 p-2 rounded bg-sky-200 inline-block">表格創建人：Gloria吳秀蘭老師，Google認證講師，英文兼台語教師</p>
+            <p class="text-sm text-gray-500 mt-3 p-1 rounded bg-pink-200 inline-block font-bold italic">🙌請在下方表格標注該位同學該節課曠課狀況。</p>
+            <div class="mt-3 text-sm">
+                <label for="formFillerSelect" class="font-medium text-gray-700">填表人：</label>
+                <select id="formFillerSelect" name="formFillerSelect" class="border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
+                    <option value="小幫手">小幫手</option>
+                    <option value="導師">導師</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="mb-6 flex flex-col sm:flex-row items-center sm:space-x-3 bg-white p-4 rounded-lg shadow">
+            <label for="weekStart" class="text-sm font-medium text-gray-700 mb-2 sm:mb-0 font-bold">選擇週一日期：</label>
+            <input type="date" id="weekStart" class="border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
+        </div>
+
+        <div id="tableContainer" class="overflow-x-auto bg-white rounded-lg shadow">
+            <table id="attendanceTable" class="min-w-full border-collapse border border-gray-300">
+                <thead id="tableHeader" class="bg-gray-100">
+                    </thead>
+                <tbody id="tableBody">
+                    </tbody>
+                <tfoot id="tableFooter" class="bg-gray-100 font-semibold">
+                    </tfoot>
+            </table>
+        </div>
+         <div id="noDataMessage" class="hidden mt-4 text-center text-gray-500">
+            請選擇日期以載入點名表。
+        </div>
+    </div>
+
+    <script>
+        // 學生名單
+        const students = [
+            { seat: "1", id: "219001", name: "杜筱渝" }, { seat: "2", id: "219002", name: "王宥鎧" },
+            { seat: "3", id: "219003", name: "王韋鈞" }, { seat: "4", id: "219004", name: "王尉丞" },
+            { seat: "5", id: "219005", name: "王稟程" }, { seat: "6", id: "219006", name: "朱彥霖" },
+            { seat: "7", id: "219007", name: "吳柏誼" }, { seat: "8", id: "219008", name: "李尚錤" },
+            { seat: "9", id: "219009", name: "李彥廷" }, { seat: "10", id: "219010", name: "林正勛" },
+            { seat: "11", id: "219011", name: "林松侑" }, { seat: "12", id: "219012", name: "林冠廷" },
+            { seat: "13", id: "219013", name: "林冠穎" }, { seat: "14", id: "219014", name: "林博宣" },
+            { seat: "15", id: "219015", name: "林毅鑫" }, { seat: "16", id: "219016", name: "陳翊凱" },
+            { seat: "17", id: "219017", name: "莊文禾" }, { seat: "18", id: "219018", name: "郭宥辰" },
+            { seat: "19", id: "219019", name: "郭柏岑" }, { seat: "20", id: "219020", name: "陳友文" },
+            { seat: "21", id: "219021", name: "陳恆翊" }, { seat: "22", id: "219022", name: "陳柏宇" },
+            { seat: "23", id: "219023", name: "黃冠澤" }, { seat: "24", id: "219024", name: "黃宥嘉" },
+            { seat: "25", id: "219025", name: "廖晉佑" }, { seat: "26", id: "219026", name: "謝尚諭" },
+            { seat: "27", id: "219027", name: "謝博安" }, { seat: "29", id: "219029", name: "蘇奕齊" }
+        ];
+        // 科目列表
+        const subjects = ["", "國文", "英文", "數學", "體育", "美術", "物理", "專業", "實習", "專題", "班會", "週會/社團"];
+        // 教師列表
+        const teachers = ["", "吳秀蘭師", "許尤美師", "張瀞文師", "黃益慶師", "楊智宇師", "林靜華師", "王建棠師", "陳錦忠師", "許令霖師", "蘇專榮師"];
+        // 填表人角色
+        const roles = ["小幫手", "導師"];
+
+
+        const NUM_PERIODS = 7; // 每日節次數
+        const NUM_DAYS = 5;    // 每週天數 (週一至週五)
+
+        const weekStartInput = document.getElementById('weekStart');
+        const tableHeader = document.getElementById('tableHeader');
+        const tableBody = document.getElementById('tableBody');
+        const tableFooter = document.getElementById('tableFooter');
+        const noDataMessage = document.getElementById('noDataMessage');
+        const tableContainer = document.getElementById('tableContainer');
+        const formFillerSelect = document.getElementById('formFillerSelect');
+
+        // 將日期物件格式化為 YYYYMMDD 字串
+        function formatDateAsYYYYMMDD(dateObj) {
+            const year = dateObj.getFullYear();
+            const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+            const day = dateObj.getDate().toString().padStart(2, '0');
+            return `${year}${month}${day}`;
+        }
+
+        function initializeDate() {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const diffToMonday = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+            const monday = new Date(today.setDate(diffToMonday));
+            weekStartInput.valueAsDate = monday;
+            renderTable(monday);
+        }
+
+        function renderTable(startDate) {
+            if (!startDate || isNaN(startDate.getTime())) {
+                 tableContainer.classList.add('hidden');
+                 noDataMessage.classList.remove('hidden');
+                return;
+            }
+            tableContainer.classList.remove('hidden');
+            noDataMessage.classList.add('hidden');
+
+            tableHeader.innerHTML = '';
+            tableBody.innerHTML = '';
+            // tableFooter.innerHTML = ''; // 表尾結構由 renderFooterStructure 創建
+
+            // 渲染表頭
+            const headerRow = tableHeader.insertRow();
+            const dateTh = headerRow.insertCell();
+            dateTh.textContent = '日期';
+            dateTh.classList.add('sticky-col', 'sticky-col-date');
+
+            const periodTh = headerRow.insertCell();
+            periodTh.textContent = '節次';
+            periodTh.classList.add('sticky-col', 'sticky-col-period');
+
+            const subjectTh = headerRow.insertCell();
+            subjectTh.textContent = '科目';
+            subjectTh.classList.add('sticky-col', 'sticky-col-subject');
+
+
+            const teacherTh = headerRow.insertCell();
+            teacherTh.textContent = '任課教師';
+            teacherTh.classList.add('sticky-col', 'sticky-col-teacher');
+
+            students.forEach(student => {
+                const studentTh = headerRow.insertCell();
+                studentTh.textContent = `${student.seat}. ${student.name}`;
+                studentTh.classList.add('px-2', 'py-3', 'text-xs');
+            });
+
+            // 渲染表格主體
+            const selectedRoleForDisplay = formFillerSelect.value; // 獲取當前選擇以顯示的角色
+
+            for (let dayIndex = 0; dayIndex < NUM_DAYS; dayIndex++) {
+                const cellDate = new Date(startDate);
+                cellDate.setDate(startDate.getDate() + dayIndex);
+                const formattedCellDate = formatDateAsYYYYMMDD(cellDate);
+                const dateString = cellDate.toLocaleDateString('zh-TW', { month: '2-digit', day: '2-digit' });
+                const dayName = cellDate.toLocaleDateString('zh-TW', { weekday: 'short' });
+
+                let rowBgClass = '';
+                if (dayIndex === 0 || dayIndex === 2 || dayIndex === 4) { // 週一, 週三, 週五
+                    rowBgClass = 'bg-yellow-100';
+                } else if (dayIndex === 1) { // 週二
+                    rowBgClass = 'bg-sky-100';
+                } else { // 週四 (dayIndex === 3)
+                    rowBgClass = 'bg-green-100';
+                }
+
+                for (let periodIndex = 0; periodIndex < NUM_PERIODS; periodIndex++) {
+                    const row = tableBody.insertRow();
+
+                    const dateCell = row.insertCell();
+                    dateCell.classList.add(rowBgClass);
+                    if (periodIndex === 0) {
+                        dateCell.textContent = `${dateString} (${dayName})`;
+                        dateCell.rowSpan = NUM_PERIODS;
+                        dateCell.classList.add('sticky-col', 'sticky-col-date', 'align-middle');
+                    } else {
+                        dateCell.classList.add('hidden');
+                    }
+
+                    const periodCell = row.insertCell();
+                    periodCell.textContent = (periodIndex + 1).toString();
+                    periodCell.classList.add('sticky-col', 'sticky-col-period', 'align-middle', rowBgClass);
+
+                    const subjectCell = row.insertCell();
+                    const subjectSelect = document.createElement('select');
+                    subjectSelect.classList.add('subject-select', 'w-full', 'text-sm');
+                    subjects.forEach(subject => {
+                        const option = document.createElement('option');
+                        option.value = subject;
+                        option.textContent = subject;
+                        if (subject === "") option.textContent = "選擇科目";
+                        subjectSelect.appendChild(option);
+                    });
+                    subjectCell.appendChild(subjectSelect);
+                    subjectCell.classList.add('sticky-col', 'sticky-col-subject', 'align-middle', rowBgClass);
+
+                    const teacherCell = row.insertCell();
+                    const teacherSelect = document.createElement('select');
+                    teacherSelect.classList.add('teacher-select', 'w-full', 'text-sm');
+                    teachers.forEach(teacher => {
+                        const option = document.createElement('option');
+                        option.value = teacher;
+                        option.textContent = teacher;
+                         if (teacher === "") option.textContent = "選擇教師";
+                        teacherSelect.appendChild(option);
+                    });
+                    teacherCell.appendChild(teacherSelect);
+                    teacherCell.classList.add('sticky-col', 'sticky-col-teacher', 'align-middle', rowBgClass);
+
+                    students.forEach(student => {
+                        const attendanceCell = row.insertCell();
+                        attendanceCell.classList.add(rowBgClass);
+                        const checkboxContainer = document.createElement('div');
+                        checkboxContainer.classList.add('custom-checkbox-container');
+                        
+                        checkboxContainer.dataset.studentId = student.id;
+                        checkboxContainer.dataset.date = formattedCellDate;
+                        checkboxContainer.dataset.period = periodIndex.toString();
+
+                        // 根據選擇的角色讀取 localStorage 以顯示 "X"
+                        const localStorageKeyForDisplay = `absence_${selectedRoleForDisplay}_${student.id}_${formattedCellDate}_${periodIndex}`;
+                        const isChecked = localStorage.getItem(localStorageKeyForDisplay) === "true";
+                        
+                        checkboxContainer.dataset.checked = isChecked.toString();
+                        if(isChecked) checkboxContainer.classList.add('checked');
+
+                        const xMark = document.createElement('span');
+                        xMark.classList.add('x-mark');
+                        xMark.textContent = 'X';
+                        checkboxContainer.appendChild(xMark);
+
+                        checkboxContainer.addEventListener('click', () => {
+                            const currentCheckedState = checkboxContainer.dataset.checked === "true";
+                            const newCheckedState = !currentCheckedState;
+                            checkboxContainer.dataset.checked = newCheckedState.toString();
+                            checkboxContainer.classList.toggle('checked', newCheckedState);
+
+                            // 儲存時，使用當前下拉選單選擇的角色
+                            const roleForStorage = formFillerSelect.value;
+                            const key = `absence_${roleForStorage}_${checkboxContainer.dataset.studentId}_${checkboxContainer.dataset.date}_${checkboxContainer.dataset.period}`;
+                            if (newCheckedState) {
+                                localStorage.setItem(key, "true");
+                            } else {
+                                localStorage.removeItem(key);
+                            }
+                            updateWeeklyAbsenceTotals(); // 更新總計
+                        });
+                        attendanceCell.appendChild(checkboxContainer);
+                        attendanceCell.classList.add('align-middle');
+                    });
+                }
+            }
+            renderFooterStructure(); 
+            updateWeeklyAbsenceTotals(); 
+        }
+
+        function updateWeeklyAbsenceTotals() {
+            const currentWeekStartDate = new Date(weekStartInput.value); 
+
+            students.forEach(student => {
+                let combinedWeeklyAbsences = 0;
+                for (let dayOffset = 0; dayOffset < NUM_DAYS; dayOffset++) {
+                    const dayDate = new Date(currentWeekStartDate);
+                    dayDate.setDate(currentWeekStartDate.getDate() + dayOffset);
+                    const formattedDayDate = formatDateAsYYYYMMDD(dayDate);
+
+                    for (let periodIdx = 0; periodIdx < NUM_PERIODS; periodIdx++) {
+                        // 檢查 "小幫手" 的標記
+                        const keyAssistant = `absence_小幫手_${student.id}_${formattedDayDate}_${periodIdx}`;
+                        if (localStorage.getItem(keyAssistant) === "true") {
+                            combinedWeeklyAbsences++;
+                        }
+                        // 檢查 "導師" 的標記
+                        const keyTutor = `absence_導師_${student.id}_${formattedDayDate}_${periodIdx}`;
+                        if (localStorage.getItem(keyTutor) === "true") {
+                            combinedWeeklyAbsences++;
+                        }
+                    }
+                }
+
+                const totalCell = document.getElementById(`total-cell-${student.id}`);
+                if (totalCell) {
+                    totalCell.textContent = combinedWeeklyAbsences.toString();
+                    if (combinedWeeklyAbsences > 0) {
+                        totalCell.classList.add('text-red-500');
+                    } else {
+                        totalCell.classList.remove('text-red-500');
+                    }
+                }
+            });
+        }
+
+        function renderFooterStructure() {
+            tableFooter.innerHTML = ''; 
+
+            const weeklyTotalFooterRow = tableFooter.insertRow();
+            const weeklyTotalLabelCell = weeklyTotalFooterRow.insertCell();
+            weeklyTotalLabelCell.textContent = '該週學生曠課小記：'; 
+            weeklyTotalLabelCell.colSpan = 4;
+            weeklyTotalLabelCell.classList.add('text-right', 'pr-4', 'sticky-col', 'sticky-col-date', 'bg-gray-100', 'align-middle');
+
+            students.forEach(student => {
+                const totalCell = weeklyTotalFooterRow.insertCell();
+                totalCell.id = `total-cell-${student.id}`; // ID 用於 updateWeeklyAbsenceTotals 更新
+                totalCell.textContent = '0';
+                totalCell.classList.add('align-middle', 'bg-gray-100');
+            });
+        }
+
+        weekStartInput.addEventListener('change', (event) => {
+            const selectedDate = new Date(event.target.value);
+            // 確保選擇的是週一，如果不是，自動調整到該週的週一
+            if (selectedDate.getDay() !== 1) { 
+                alert('日期已自動調整為所選週的週一。');
+                const dayOfWeek = selectedDate.getDay();
+                const diffToMonday = selectedDate.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1); // dayOfWeek is 0 for Sunday, 1 for Monday...
+                const monday = new Date(selectedDate.setDate(diffToMonday));
+                weekStartInput.valueAsDate = monday; // 更新輸入框的值
+                renderTable(monday);
+            } else {
+                renderTable(selectedDate);
+            }
+        });
+
+        // 當填表人角色改變時，重新渲染表格以顯示該角色的標記，並更新總計
+        formFillerSelect.addEventListener('change', () => {
+            const selectedDate = new Date(weekStartInput.value);
+            renderTable(selectedDate); // renderTable 內部會讀取 formFillerSelect.value
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeDate();
+             if (!weekStartInput.value) { // 確保在沒有預設日期時顯示提示
+                tableContainer.classList.add('hidden');
+                noDataMessage.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
